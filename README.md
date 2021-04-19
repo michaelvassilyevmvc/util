@@ -1,1 +1,1 @@
-# util
+# Util for admin application
