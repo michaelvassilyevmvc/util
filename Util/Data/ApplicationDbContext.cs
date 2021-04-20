@@ -16,7 +16,7 @@ namespace Util.Data
 
         }
 
-        //public DbSet<Employee> Employees { get; set; }
+        public DbSet<Employee> Employees { get; set; }
         public DbSet<Firm> Firms { get; set; }
     }
 }

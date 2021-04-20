@@ -34,9 +34,18 @@ namespace Util.Controllers
         public IActionResult Index()
         {
             var firms = this._context.Firms.AsNoTracking().ToList();
-            var emploees = this._employeeRepository.GetEmployeesFromFile(@"c:\test.docx");
+            
 
             var model = _mapper.Map<IEnumerable<FirmDTO>>(firms);
+            return View(model);
+        }
+
+        public IActionResult Employee()
+        {
+            var employees = this._context.Employees.ToList();
+            var newEmploees = this._employeeRepository.GetEmployeesFromFile(@"c:\test.docx");
+
+            var model = this._mapper.Map<IEnumerable<EmployeeDTO>>(newEmploees);
             return View(model);
         }
 

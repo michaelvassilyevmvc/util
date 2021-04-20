@@ -1,0 +1,30 @@
+﻿@model List<Util.Core.Models.EmployeeDTO>
+
+<div class="text-center">
+    <table class="table">
+        <thead>
+            <tr>
+                <th>Id</th>
+                <th>NameRus</th>
+                <th>Firm</th>
+                <th>Phone</th>
+                <th>Address</th>
+                <th>Profession</th>
+            </tr>
+        </thead>
+
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>@item.Id</td>
+                <td class="text-left">@item.NameRus</td>
+                <td class="text-left">@item.Firm.</td>
+                <td class="text-left">@item.Phone</td>
+                <td class="text-left">@item.Address</td>
+                <td class="text-left">@item.Profession</td>
+            </tr>
+        }
+
+
+    </table>
+</div>

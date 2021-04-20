@@ -14,6 +14,7 @@ namespace Util
         public MappingProfile()
         {
             CreateMap<Firm, FirmDTO>().ReverseMap();
+            CreateMap<Employee, EmployeeDTO>().ReverseMap();
         }
     }
 }

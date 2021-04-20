@@ -10,9 +10,7 @@ namespace Util.Core.Helpers
     {
         public static string GetAddress(this string str)
         {
-            var arr = str.Split(',');
-            var tmp = arr.Where(x => x.Contains('@'));
-            return tmp.FirstOrDefault() ?? "";
+            return String.Join(" , ", str.Split(',').Where(x => x.Contains('@')));
         }
 
         public static string GetPhone(this string str)

@@ -12,6 +12,11 @@ namespace Util.Core.Repositories
     {
         List<EmployeeDTO> _employees;
 
+        public EmployeeRepository()
+        {
+            this._employees = new List<EmployeeDTO>();
+        }
+
         public List<EmployeeDTO> GetEmployeesFromFile(string path)
         {
             try

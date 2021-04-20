@@ -28,16 +28,7 @@ namespace Util
         {
             services.AddDbContext<ApplicationDbContext>(options => options.UseSqlServer(Configuration.GetConnectionString("DefaultConnection")));
             services.AddScoped<IEmployeeRepository, EmployeeRepository>();
-
-            //var mappingConfig = new MapperConfiguration(mc=>{
-            //    mc.AddProfile(new MappingProfile());
-            //});
-
-            //IMapper mapper = mappingConfig.CreateMapper();
-            //services.AddSingleton(mapper);
-
             services.AddAutoMapper(typeof(MappingProfile));
-
             services.AddControllersWithViews();
         }
 
