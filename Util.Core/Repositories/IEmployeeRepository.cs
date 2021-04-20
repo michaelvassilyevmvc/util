@@ -9,7 +9,9 @@ namespace Util.Core.Repositories
 {
     public interface IEmployeeRepository
     {
-        List<Employee> GetEmployeesFromFile(string path);
+        List<EmployeeDTO> GetEmployees();
+
+        List<EmployeeDTO> GetEmployeesFromFile(string path);
 
     }
 }

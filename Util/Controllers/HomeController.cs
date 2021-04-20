@@ -6,21 +6,38 @@ using System.Diagnostics;
 using System.Linq;
 using System.Threading.Tasks;
 using Util.Models;
+using Util.Core;
+using Util.Core.Repositories;
+using Util.Data;
+using Microsoft.EntityFrameworkCore;
+using AutoMapper;
+using Util.Core.Models;
 
 namespace Util.Controllers
 {
     public class HomeController : Controller
     {
         private readonly ILogger<HomeController> _logger;
+        private readonly IMapper _mapper;
+        private readonly IEmployeeRepository _employeeRepository;
+        private readonly ApplicationDbContext _context;
+        
 
-        public HomeController(ILogger<HomeController> logger)
+        public HomeController(IEmployeeRepository employeeRepository, ApplicationDbContext context,ILogger<HomeController> logger, IMapper mapper)
         {
-            _logger = logger;
+            this._logger = logger;
+            this._mapper = mapper;
+            this._employeeRepository = employeeRepository;
+            this._context = context;
         }
 
         public IActionResult Index()
         {
-            return View();
+            var firms = this._context.Firms.AsNoTracking().ToList();
+            var emploees = this._employeeRepository.GetEmployeesFromFile(@"c:\test.docx");
+
+            var model = _mapper.Map<IEnumerable<FirmDTO>>(firms);
+            return View(model);
         }
 
         public IActionResult Privacy()
